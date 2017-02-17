@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.aatifshah.cs161_hmk1.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:text="$0.00/mo"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:id="@+id/monthly_payment_textview"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/amount_borrowed"
+        android:inputType="numberDecimal"
+        android:gravity="center"
+        android:textSize="@dimen/text_size"
+        android:hint="Enter amount borrowed" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/interest_rate_value" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size"
+            android:hint="Interest Rate"
+            android:gravity="center|bottom"
+            android:id="@+id/interest_rate_label" />
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_gravity="top"
+        android:id="@+id/annual_rate_of_interest_seekbar"
+        android:progress="100"
+        android:max="200"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:id="@+id/loanterm_radiogroup">
+
+
+        <RadioButton
+            android:hint="15"
+            android:textSize="@dimen/text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loanterm15_radio"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:hint="20"
+            android:textSize="@dimen/text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loanterm20_radio"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:hint="30"
+            android:textSize="@dimen/text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loanterm30_radio"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center"
+            android:layout_weight="1" />
+    </RadioGroup>
+
+    <CheckBox
+        android:hint="+ taxes and insurance"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:button="@null"
+        android:drawableBottom="?android:attr/listChoiceIndicatorMultiple"
+        android:gravity="center"
+        android:id="@+id/taxes_insurances_checkbox"
+        android:paddingBottom="5dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:id="@+id/calculate_button"
+        android:textSize="17sp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        android:text="calculate" />
+</LinearLayout>
