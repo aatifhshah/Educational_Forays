@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Simple Substitution
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <div class="chart">
+      <canvas [hidden]="getChartType() != 'BarChart'"
+              baseChart
+              height="250%"
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"></canvas>
+
+        <canvas [hidden]="getChartType() != 'PolarArea'" baseChart
+          height="250%"
+          [data]="polarAreaChartData"
+          [labels]="polarAreaChartLabels"
+          [legend]="polarAreaLegend"
+          [chartType]="polarAreaChartType"></canvas>
+    </div>
+    <hr/>
+    <form [formGroup]="inputForm" (ngSubmit)="calculateLetterFrequencies()">
+      <ion-item>
+        <ion-label stacked>Enter encrypted text</ion-label>
+        <ion-input type="text" clearInput="true" formControlName="description"></ion-input>
+      </ion-item>
+      <button ion-button test full type="submit" [disabled]="!inputForm.valid">Calculate Letter Frequencies</button>
+    </form>
+      <button ion-fab color="danger" class="fab-fixed" (click)="toggleChart()"><ion-icon name="shuffle"></ion-icon></button>
+  </div>
+
+  <!-- If input text exists, show the following html -->
+  <div *ngIf="inputText.length > 0">
+    <ion-title padding-top="25px">Input Text</ion-title>
+    <ion-item text-wrap class="selectable">
+      {{inputText}}
+    </ion-item>
+    <form [formGroup]="keyForm">
+        <ion-row>
+          <ion-col>
+            <button ion-button  (click)="kryptographinator(true)" full [disabled]="!keyForm.valid">Encrypt</button>
+          </ion-col>
+          <ion-col width-50>
+            <ion-item>
+              <ion-input clearInput="true" placeholder="Enter Alphabet Permutation Key" type="text" formControlName="key"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <button ion-button  (click)="kryptographinator(false)" full [disabled]="!keyForm.valid">Decrypt</button>
+          </ion-col>
+        </ion-row>
+    </form>
+    <div *ngIf="outputText.length > 0">
+      <ion-title padding-top="15px">Output Text</ion-title>
+      <ion-item text-wrap class="selectable">
+        {{outputText}}
+      </ion-item>
+      <button ion-button full clear (click)="switch()">Switch</button>
+    </div>
+  </div>
+</ion-content>
