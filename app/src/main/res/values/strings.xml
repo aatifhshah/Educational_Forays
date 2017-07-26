@@ -1,0 +1,11 @@
+<resources>
+    <!--All app references-->
+    <string name="app_name">Babo</string>
+    
+    <!-- Add user activity-->
+    <string name="add_user_title">Add User</string>
+    <string name="enter_first_name">First Name</string>
+    <string name="enter_last_name">Last Name</string>
+    <string name="enter_email">Email</string>
+    
+</resources>
